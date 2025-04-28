@@ -150,7 +150,12 @@ export default class WProofreader extends Plugin {
 	_loadWscbundle() {
 		const scriptLoader = new ScriptLoader(this._userOptions.srcUrl);
 
-		return scriptLoader.load();
+		return scriptLoader.load()
+			.then(() => {
+				if (!window.WEBSPELLCHECKER) {
+					throw new Error('WEBSPELLCHECKER is not loaded.');
+				}
+			});
 	}
 
 	/**
@@ -278,7 +283,7 @@ export default class WProofreader extends Plugin {
 	 * @private
 	 */
 	_createInstance(root) {
-		WEBSPELLCHECKER.init(this._mergeOptions(root), this._handleInstanceCreated.bind(this));
+		window.WEBSPELLCHECKER.init(this._mergeOptions(root), this._handleInstanceCreated.bind(this));
 	}
 
 	/**

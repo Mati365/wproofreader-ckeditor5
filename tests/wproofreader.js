@@ -452,6 +452,26 @@ describe('WProofreader', () => {
 					expect(editor.editing.view.getDomRoot('main')).to.not.be.equal(span);
 				});
 		});
+
+		describe('_loadWscbundle() method', () => {
+			it('should reject promise if successfully loaded script does not contain WEBSPELLCHECKER', () => {
+				const options = { srcUrl: 'http://localhost:3000/tests/mocks/mock-script.js' };
+				const copy = window.WEBSPELLCHECKER;
+
+				delete window.WEBSPELLCHECKER;
+
+				const wproofreader = new WProofreader();
+				wproofreader._userOptions = options;
+
+				return wproofreader._loadWscbundle()
+					.catch((e) => {
+						expect(e.message).to.be.equal('WEBSPELLCHECKER is not loaded.');
+					})
+					.then(() => {
+						window.WEBSPELLCHECKER = copy;
+					});
+			});
+		});
 	});
 
 	describe('in CKEditor 5 restricted editing mode', () => {

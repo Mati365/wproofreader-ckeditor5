@@ -1,5 +1,10 @@
 # WProofreader plugin for CKEditor 5 Changelog
 
+## 3.1.3 - 2025-05-01
+
+* Fix issue when WEBSPELLCHECKER is undefined after script loading. [#92](https://github.com/WebSpellChecker/wproofreader-ckeditor5/issues/92).
+* Internal changes (updated dependencies, documentation, etc.).
+
 ## 3.1.2 - 2024-08-16
 
 Internal changes (updated dependencies, documentation, etc.).

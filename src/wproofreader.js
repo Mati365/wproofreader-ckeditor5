@@ -153,7 +153,7 @@ export default class WProofreader extends Plugin {
 		return scriptLoader.load()
 			.then(() => {
 				if (!window.WEBSPELLCHECKER) {
-					throw new Error('WEBSPELLCHECKER is not loaded.');
+					throw new Error('WEBSPELLCHECKER is not defined.');
 				}
 			});
 	}

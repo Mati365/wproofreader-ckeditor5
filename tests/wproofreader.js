@@ -454,7 +454,7 @@ describe('WProofreader', () => {
 		});
 
 		describe('_loadWscbundle() method', () => {
-			it('should reject promise if successfully loaded script does not contain WEBSPELLCHECKER', () => {
+			it('should throw an error if WEBSPELLCHECKER is not defined', () => {
 				const options = { srcUrl: 'http://localhost:3000/tests/mocks/mock-script.js' };
 				const copy = window.WEBSPELLCHECKER;
 
@@ -465,7 +465,7 @@ describe('WProofreader', () => {
 
 				return wproofreader._loadWscbundle()
 					.catch((e) => {
-						expect(e.message).to.be.equal('WEBSPELLCHECKER is not loaded.');
+						expect(e.message).to.be.equal('WEBSPELLCHECKER is not defined.');
 					})
 					.then(() => {
 						window.WEBSPELLCHECKER = copy;

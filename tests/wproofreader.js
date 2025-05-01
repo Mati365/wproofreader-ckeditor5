@@ -467,7 +467,7 @@ describe('WProofreader', () => {
 					.catch((e) => {
 						expect(e.message).to.be.equal('WEBSPELLCHECKER is not defined.');
 					})
-					.then(() => {
+					.finally(() => {
 						window.WEBSPELLCHECKER = copy;
 					});
 			});

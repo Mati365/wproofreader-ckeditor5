@@ -66,8 +66,5 @@
   "peerDependencies": {
     "ckeditor5": ">=43.0.0"
   },
-  "types": "./src/index.d.ts",
-  "dependencies": {
-    "typescript": "^5.8.3"
-  }
+  "types": "./src/index.d.ts"
 }
